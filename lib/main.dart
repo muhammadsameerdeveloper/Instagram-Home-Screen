@@ -33,7 +33,7 @@ class InstagramHome extends StatelessWidget {
           'Instagram',
           style: TextStyle(
             color: Colors.black,
-            fontSize: 27,
+            fontSize: 28,
             fontWeight: FontWeight.bold,
           ),
         ),
@@ -44,14 +44,14 @@ class InstagramHome extends StatelessWidget {
             icon: const Icon(
               Icons.favorite_border,
               color: Colors.black,
-              size: 28,
+              size: 29,
             ),
           ),
 
           IconButton(
             onPressed: () {},
             icon: const Icon(
-              Icons.messenger_outline,
+              Icons.chat_bubble_outline,
               color: Colors.black,
               size: 27,
             ),
@@ -62,164 +62,116 @@ class InstagramHome extends StatelessWidget {
       // ================= BODY =================
       body: ListView(
         children: [
-          // =================================================
-          // STORIES
-          // =================================================
+          // ================= STORIES =================
           SizedBox(
             height: 125,
+
             child: ListView(
               scrollDirection: Axis.horizontal,
+
               children: [
-                // YOUR STORY
-                Padding(
-                  padding: const EdgeInsets.only(left: 12, right: 8, top: 10),
-                  child: Column(
-                    children: [
-                      Stack(
-                        children: [
-                          const CircleAvatar(
-                            radius: 35,
-                            backgroundImage: NetworkImage(
-                              'https://i.pravatar.cc/150?img=12',
-                            ),
-                          ),
+                yourStory(),
 
-                          Positioned(
-                            right: 0,
-                            bottom: 0,
-                            child: Container(
-                              height: 22,
-                              width: 22,
-                              decoration: BoxDecoration(
-                                color: Colors.blue,
-                                shape: BoxShape.circle,
-                                border: Border.all(
-                                  color: Colors.white,
-                                  width: 2,
-                                ),
-                              ),
-                              child: const Icon(
-                                Icons.add,
-                                color: Colors.white,
-                                size: 17,
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
-
-                      const SizedBox(height: 6),
-
-                      const Text('Your story', style: TextStyle(fontSize: 12)),
-                    ],
-                  ),
-                ),
-
-                story('Alex', 1),
+                story('Ali', 1),
                 story('Sarah', 2),
                 story('John', 3),
-                story('Emma', 4),
+                story('Maria', 4),
                 story('David', 5),
-                story('Maria', 6),
+                story('Emma', 6),
                 story('James', 7),
+                story('Olivia', 8),
               ],
             ),
           ),
 
-          const Divider(height: 1),
+          const Divider(),
 
-          // =================================================
-          // POST 1
-          // =================================================
-          post(
-            username: 'alex_dev',
-            location: 'Karachi, Pakistan',
-            profileImage: 'https://i.pravatar.cc/150?img=1',
-            postImage: 'https://picsum.photos/id/1015/800/800',
-            likes: '1,245',
-            caption: 'Beautiful place to visit! 🌄',
-          ),
-
-          // =================================================
-          // POST 2
-          // =================================================
-          post(
-            username: 'sarah_style',
-            location: 'Lahore, Pakistan',
-            profileImage: 'https://i.pravatar.cc/150?img=2',
-            postImage: 'https://picsum.photos/id/1027/800/800',
-            likes: '2,431',
-            caption: 'Enjoying my beautiful day ✨❤️',
-          ),
-
-          // =================================================
-          // SUGGESTED FOR YOU
-          // =================================================
+          // ================= LIVE NOW =================
           const Padding(
-            padding: EdgeInsets.symmetric(horizontal: 12, vertical: 15),
+            padding: EdgeInsets.all(12),
+
             child: Text(
-              'Suggested for you',
-              style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+              'Live now',
+              style: TextStyle(fontSize: 19, fontWeight: FontWeight.bold),
             ),
           ),
 
           SizedBox(
-            height: 220,
+            height: 100,
+
             child: ListView(
               scrollDirection: Axis.horizontal,
-              padding: const EdgeInsets.symmetric(horizontal: 10),
+
               children: [
-                suggestion('Mike', 8),
-
-                suggestion('Olivia', 9),
-
-                suggestion('Daniel', 10),
-
-                suggestion('Sophia', 11),
+                liveUser('Mike', 9),
+                liveUser('Sophia', 10),
+                liveUser('Daniel', 11),
+                liveUser('Noah', 12),
               ],
             ),
           ),
 
           const SizedBox(height: 10),
 
-          // =================================================
-          // POST 3
-          // =================================================
+          // ================= POST 1 =================
           post(
-            username: 'john_travel',
-            location: 'Islamabad, Pakistan',
-            profileImage: 'https://i.pravatar.cc/150?img=3',
-            postImage: 'https://picsum.photos/id/1036/800/800',
-            likes: '987',
-            caption: 'Travel makes life beautiful ❤️',
+            username: 'ali_developer',
+            location: 'Karachi',
+            profileImage: 'https://i.pravatar.cc/150?img=1',
+            postImage: 'https://picsum.photos/id/1015/800/800',
+            likes: '1,234',
+            caption: 'Amazing day! Flutter is awesome 🚀',
           ),
 
-          // =================================================
-          // REELS SECTION
-          // =================================================
+          // ================= POST 2 =================
+          post(
+            username: 'sarah_fashion',
+            location: 'Lahore',
+            profileImage: 'https://i.pravatar.cc/150?img=2',
+            postImage: 'https://picsum.photos/id/1027/800/800',
+            likes: '2,540',
+            caption: 'Simple look for today ✨',
+          ),
+
+          // ================= SHOPPING =================
           const Padding(
             padding: EdgeInsets.all(12),
+
             child: Text(
-              'Reels',
+              'Shopping',
               style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
             ),
           ),
 
           SizedBox(
-            height: 250,
+            height: 230,
+
             child: ListView(
               scrollDirection: Axis.horizontal,
+
               children: [
-                reel(
-                  'https://picsum.photos/id/1040/400/600',
-                  'Amazing view 🌄',
+                productCard(
+                  'Shoes',
+                  'https://picsum.photos/id/21/500/500',
+                  '\$45',
                 ),
 
-                reel('https://picsum.photos/id/1041/400/600', 'Travel time ✈️'),
+                productCard(
+                  'Watch',
+                  'https://picsum.photos/id/26/500/500',
+                  '\$80',
+                ),
 
-                reel(
-                  'https://picsum.photos/id/1042/400/600',
-                  'Beautiful nature 🌿',
+                productCard(
+                  'Bag',
+                  'https://picsum.photos/id/30/500/500',
+                  '\$55',
+                ),
+
+                productCard(
+                  'Glasses',
+                  'https://picsum.photos/id/40/500/500',
+                  '\$30',
                 ),
               ],
             ),
@@ -227,37 +179,99 @@ class InstagramHome extends StatelessWidget {
 
           const SizedBox(height: 20),
 
-          // =================================================
-          // POST 4
-          // =================================================
+          // ================= POST 3 =================
           post(
-            username: 'maria_food',
-            location: 'Islamabad, Pakistan',
-            profileImage: 'https://i.pravatar.cc/150?img=6',
-            postImage: 'https://picsum.photos/id/292/800/800',
-            likes: '3,456',
-            caption: 'Good food = good mood 😍🍔',
+            username: 'john_traveler',
+            location: 'Islamabad',
+            profileImage: 'https://i.pravatar.cc/150?img=3',
+            postImage: 'https://picsum.photos/id/1036/800/800',
+            likes: '4,320',
+            caption: 'Nature is always beautiful 🌿❤️',
           ),
 
-          // =================================================
-          // POST 5
-          // =================================================
+          // ================= SUGGESTIONS =================
+          const Padding(
+            padding: EdgeInsets.all(12),
+
+            child: Text(
+              'Suggested for you',
+              style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+            ),
+          ),
+
+          SizedBox(
+            height: 225,
+
+            child: ListView(
+              scrollDirection: Axis.horizontal,
+
+              children: [
+                suggestion('Hamza', 13),
+                suggestion('Ayesha', 14),
+                suggestion('Usman', 15),
+                suggestion('Hina', 16),
+              ],
+            ),
+          ),
+
+          const SizedBox(height: 20),
+
+          // ================= REELS =================
+          const Padding(
+            padding: EdgeInsets.all(12),
+
+            child: Text(
+              'Reels',
+              style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+            ),
+          ),
+
+          SizedBox(
+            height: 270,
+
+            child: ListView(
+              scrollDirection: Axis.horizontal,
+
+              children: [
+                reel('https://picsum.photos/id/50/500/700', 'Travel'),
+
+                reel('https://picsum.photos/id/60/500/700', 'Nature'),
+
+                reel('https://picsum.photos/id/70/500/700', 'Fashion'),
+
+                reel('https://picsum.photos/id/80/500/700', 'Lifestyle'),
+              ],
+            ),
+          ),
+
+          const SizedBox(height: 20),
+
+          // ================= POST 4 =================
           post(
-            username: 'fashion_world',
+            username: 'food_lovers',
+            location: 'Islamabad',
+            profileImage: 'https://i.pravatar.cc/150?img=6',
+            postImage: 'https://picsum.photos/id/292/800/800',
+            likes: '6,540',
+            caption: 'Food makes everything better 😍🍔',
+          ),
+
+          // ================= POST 5 =================
+          post(
+            username: 'travel_world',
             location: 'Dubai',
             profileImage: 'https://i.pravatar.cc/150?img=7',
             postImage: 'https://picsum.photos/id/325/800/800',
-            likes: '5,120',
-            caption: 'Simple and beautiful ✨',
+            likes: '8,120',
+            caption: 'Another beautiful destination ✈️',
           ),
 
-          const SizedBox(height: 50),
+          // ================= END =================
+          const SizedBox(height: 80),
         ],
       ),
 
-      // =================================================
-      // BOTTOM NAVIGATION
-      // =================================================
+      // ================= BOTTOM NAV =================
       bottomNavigationBar: BottomNavigationBar(
         type: BottomNavigationBarType.fixed,
 
@@ -272,26 +286,27 @@ class InstagramHome extends StatelessWidget {
         showUnselectedLabels: false,
 
         items: const [
-          BottomNavigationBarItem(icon: Icon(Icons.home, size: 28), label: ''),
+          BottomNavigationBarItem(icon: Icon(Icons.home, size: 29), label: ''),
 
           BottomNavigationBarItem(
-            icon: Icon(Icons.search, size: 28),
+            icon: Icon(Icons.search, size: 29),
             label: '',
           ),
 
           BottomNavigationBarItem(
-            icon: Icon(Icons.add_box_outlined, size: 28),
+            icon: Icon(Icons.add_box_outlined, size: 29),
             label: '',
           ),
 
           BottomNavigationBarItem(
-            icon: Icon(Icons.movie_outlined, size: 28),
+            icon: Icon(Icons.movie_outlined, size: 29),
             label: '',
           ),
 
           BottomNavigationBarItem(
             icon: CircleAvatar(
               radius: 14,
+
               backgroundImage: NetworkImage('https://i.pravatar.cc/150?img=12'),
             ),
             label: '',
@@ -302,12 +317,62 @@ class InstagramHome extends StatelessWidget {
   }
 
   // =====================================================
-  // STORY WIDGET
+  // YOUR STORY
   // =====================================================
 
-  Widget story(String name, int imageNumber) {
+  Widget yourStory() {
+    return Padding(
+      padding: const EdgeInsets.only(left: 12, right: 8, top: 10),
+
+      child: Column(
+        children: [
+          Stack(
+            children: [
+              const CircleAvatar(
+                radius: 35,
+
+                backgroundImage: NetworkImage(
+                  'https://i.pravatar.cc/150?img=12',
+                ),
+              ),
+
+              Positioned(
+                right: 0,
+                bottom: 0,
+
+                child: Container(
+                  height: 23,
+                  width: 23,
+
+                  decoration: BoxDecoration(
+                    color: Colors.blue,
+                    shape: BoxShape.circle,
+
+                    border: Border.all(color: Colors.white, width: 2),
+                  ),
+
+                  child: const Icon(Icons.add, color: Colors.white, size: 17),
+                ),
+              ),
+            ],
+          ),
+
+          const SizedBox(height: 6),
+
+          const Text('Your story', style: TextStyle(fontSize: 12)),
+        ],
+      ),
+    );
+  }
+
+  // =====================================================
+  // STORY
+  // =====================================================
+
+  Widget story(String name, int image) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 10),
+
       child: Column(
         children: [
           Container(
@@ -330,7 +395,7 @@ class InstagramHome extends StatelessWidget {
                 radius: 29,
 
                 backgroundImage: NetworkImage(
-                  'https://i.pravatar.cc/150?img=$imageNumber',
+                  'https://i.pravatar.cc/150?img=$image',
                 ),
               ),
             ),
@@ -345,7 +410,72 @@ class InstagramHome extends StatelessWidget {
   }
 
   // =====================================================
-  // POST WIDGET
+  // LIVE USER
+  // =====================================================
+
+  Widget liveUser(String name, int image) {
+    return Padding(
+      padding: const EdgeInsets.only(left: 10, right: 5),
+
+      child: Column(
+        children: [
+          Stack(
+            children: [
+              Container(
+                padding: const EdgeInsets.all(3),
+
+                decoration: const BoxDecoration(
+                  shape: BoxShape.circle,
+                  color: Colors.red,
+                ),
+
+                child: CircleAvatar(
+                  radius: 32,
+
+                  backgroundImage: NetworkImage(
+                    'https://i.pravatar.cc/150?img=$image',
+                  ),
+                ),
+              ),
+
+              Positioned(
+                bottom: 0,
+                left: 16,
+
+                child: Container(
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 5,
+                    vertical: 2,
+                  ),
+
+                  decoration: BoxDecoration(
+                    color: Colors.red,
+                    borderRadius: BorderRadius.circular(5),
+                  ),
+
+                  child: const Text(
+                    'LIVE',
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 9,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ),
+              ),
+            ],
+          ),
+
+          const SizedBox(height: 4),
+
+          Text(name, style: const TextStyle(fontSize: 12)),
+        ],
+      ),
+    );
+  }
+
+  // =====================================================
+  // POST
   // =====================================================
 
   Widget post({
@@ -365,11 +495,13 @@ class InstagramHome extends StatelessWidget {
 
           leading: CircleAvatar(
             radius: 22,
+
             backgroundImage: NetworkImage(profileImage),
           ),
 
           title: Text(
             username,
+
             style: const TextStyle(fontWeight: FontWeight.bold),
           ),
 
@@ -378,46 +510,59 @@ class InstagramHome extends StatelessWidget {
           trailing: const Icon(Icons.more_vert),
         ),
 
-        // POST IMAGE
+        // IMAGE
         Image.network(
           postImage,
+
           width: double.infinity,
+
           height: 400,
+
           fit: BoxFit.cover,
         ),
 
-        // ACTION BUTTONS
-        Row(
-          children: [
-            IconButton(
-              onPressed: () {},
-              icon: const Icon(Icons.favorite_border, size: 29),
-            ),
+        // BUTTONS
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 5),
 
-            IconButton(
-              onPressed: () {},
-              icon: const Icon(Icons.chat_bubble_outline, size: 27),
-            ),
+          child: Row(
+            children: [
+              IconButton(
+                onPressed: () {},
 
-            IconButton(
-              onPressed: () {},
-              icon: const Icon(Icons.send_outlined, size: 27),
-            ),
+                icon: const Icon(Icons.favorite_border, size: 29),
+              ),
 
-            const Spacer(),
+              IconButton(
+                onPressed: () {},
 
-            IconButton(
-              onPressed: () {},
-              icon: const Icon(Icons.bookmark_border, size: 29),
-            ),
-          ],
+                icon: const Icon(Icons.chat_bubble_outline, size: 27),
+              ),
+
+              IconButton(
+                onPressed: () {},
+
+                icon: const Icon(Icons.send_outlined, size: 27),
+              ),
+
+              const Spacer(),
+
+              IconButton(
+                onPressed: () {},
+
+                icon: const Icon(Icons.bookmark_border, size: 29),
+              ),
+            ],
+          ),
         ),
 
         // LIKES
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 12),
+
           child: Text(
             '$likes likes',
+
             style: const TextStyle(fontWeight: FontWeight.bold),
           ),
         ),
@@ -427,12 +572,15 @@ class InstagramHome extends StatelessWidget {
         // CAPTION
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 12),
+
           child: RichText(
             text: TextSpan(
               style: const TextStyle(color: Colors.black, fontSize: 14),
+
               children: [
                 TextSpan(
                   text: username,
+
                   style: const TextStyle(fontWeight: FontWeight.bold),
                 ),
 
@@ -447,19 +595,23 @@ class InstagramHome extends StatelessWidget {
         // COMMENTS
         const Padding(
           padding: EdgeInsets.only(left: 12, top: 8),
+
           child: Text(
-            'View all 35 comments',
+            'View all 42 comments',
+
             style: TextStyle(color: Colors.grey),
           ),
         ),
 
-        // ADD COMMENT
+        // COMMENT ROW
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+
           child: Row(
             children: [
               const CircleAvatar(
                 radius: 15,
+
                 backgroundImage: NetworkImage(
                   'https://i.pravatar.cc/150?img=12',
                 ),
@@ -474,7 +626,7 @@ class InstagramHome extends StatelessWidget {
                 ),
               ),
 
-              const Text('❤️  😂  👍', style: TextStyle(fontSize: 16)),
+              const Text('❤️ 😂 👍'),
             ],
           ),
         ),
@@ -485,40 +637,110 @@ class InstagramHome extends StatelessWidget {
   }
 
   // =====================================================
-  // SUGGESTION CARD
+  // PRODUCT CARD
   // =====================================================
 
-  Widget suggestion(String name, int imageNumber) {
+  Widget productCard(String name, String image, String price) {
     return Container(
-      width: 160,
-      margin: const EdgeInsets.only(right: 10),
+      width: 170,
+
+      margin: const EdgeInsets.only(left: 10),
+
+      decoration: BoxDecoration(
+        border: Border.all(color: Colors.grey.shade300),
+
+        borderRadius: BorderRadius.circular(10),
+      ),
+
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+
+        children: [
+          ClipRRect(
+            borderRadius: const BorderRadius.only(
+              topLeft: Radius.circular(10),
+              topRight: Radius.circular(10),
+            ),
+
+            child: Image.network(
+              image,
+
+              height: 140,
+              width: double.infinity,
+
+              fit: BoxFit.cover,
+            ),
+          ),
+
+          Padding(
+            padding: const EdgeInsets.all(8),
+
+            child: Text(
+              name,
+
+              style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
+            ),
+          ),
+
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 8),
+
+            child: Row(
+              children: [
+                Text(
+                  price,
+
+                  style: const TextStyle(fontWeight: FontWeight.bold),
+                ),
+
+                const Spacer(),
+
+                const Icon(Icons.favorite_border, size: 20),
+              ],
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  // =====================================================
+  // SUGGESTION
+  // =====================================================
+
+  Widget suggestion(String name, int image) {
+    return Container(
+      width: 165,
+
+      margin: const EdgeInsets.only(left: 10),
+
       padding: const EdgeInsets.all(12),
 
       decoration: BoxDecoration(
         border: Border.all(color: Colors.grey.shade300),
-        borderRadius: BorderRadius.circular(8),
+
+        borderRadius: BorderRadius.circular(10),
       ),
 
       child: Column(
         children: [
           CircleAvatar(
-            radius: 42,
+            radius: 40,
+
             backgroundImage: NetworkImage(
-              'https://i.pravatar.cc/150?img=$imageNumber',
+              'https://i.pravatar.cc/150?img=$image',
             ),
           ),
 
           const SizedBox(height: 10),
 
-          Text(
-            name,
-            style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 15),
-          ),
+          Text(name, style: const TextStyle(fontWeight: FontWeight.bold)),
 
           const SizedBox(height: 5),
 
           const Text(
             'Suggested for you',
+
             style: TextStyle(color: Colors.grey, fontSize: 12),
           ),
 
@@ -545,12 +767,13 @@ class InstagramHome extends StatelessWidget {
   }
 
   // =====================================================
-  // REEL CARD
+  // REEL
   // =====================================================
 
   Widget reel(String image, String title) {
     return Container(
-      width: 160,
+      width: 165,
+
       margin: const EdgeInsets.only(left: 10),
 
       decoration: BoxDecoration(
@@ -567,10 +790,11 @@ class InstagramHome extends StatelessWidget {
 
             child: Text(
               title,
+
               style: const TextStyle(
                 color: Colors.white,
+                fontSize: 16,
                 fontWeight: FontWeight.bold,
-                fontSize: 14,
               ),
             ),
           ),
@@ -579,7 +803,7 @@ class InstagramHome extends StatelessWidget {
             right: 10,
             bottom: 10,
 
-            child: Icon(Icons.play_arrow, color: Colors.white, size: 30),
+            child: Icon(Icons.play_circle_fill, color: Colors.white, size: 35),
           ),
         ],
       ),
